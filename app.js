@@ -21,10 +21,10 @@ const getQuotes = (e) => {
                         break;
                     }
                     output += `
-                        <li class="py-2">Quotes: ${quotesData[i].text}</li>
-                        <li class="py-2">Author: ${quotesData[i].author}</li>
-                        <hr class="w-full h-1 my-2 bg-gray-200 border-0 rounded dark:bg-gray-700>
-
+                        <li class="py-2"><strong>Quote:</strong> ${quotesData[i].text}</li>
+                        <li class="py-2"><strong>Author:</strong> ${quotesData[i].author}</li>
+                        <br/>
+                        <hr class="w-full h-px my-2 bg-gray-200 border-0 rounded dark:bg-gray-700">
                     `
                 }
                 document.querySelector('.quotes').innerHTML = output;
@@ -35,3 +35,5 @@ const getQuotes = (e) => {
 }
 
 btn.addEventListener('click', getQuotes);
+
+// {/* <hr class="w-full h-1 my-2 bg-gray-200 border-0 rounded dark:bg-gray-700"> */}
