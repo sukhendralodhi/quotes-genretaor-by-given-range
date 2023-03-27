@@ -13,7 +13,7 @@ const getQuotes = (e) => {
 
         https.onload = function() {
             if (this.status === 200) {
-                const quotesData = JSON.parse(this.responseText);
+                const quotesData = shuffle(JSON.parse(this.responseText));
                 let output = '';
 
                 for (let i = 0; i <= quotesData.length; i++) {
@@ -36,4 +36,18 @@ const getQuotes = (e) => {
 
 btn.addEventListener('click', getQuotes);
 
-// {/* <hr class="w-full h-1 my-2 bg-gray-200 border-0 rounded dark:bg-gray-700"> */}
+const shuffle = (quotes) => {
+    let CI = quotes.length, tempValue, randomIndex;
+
+    // while element exist in array 
+    while(CI > 0) {
+        randomIndex = Math.floor(Math.random() * CI);
+        // decrease value of CI 
+        CI--;
+        // swap value 
+        tempValue = quotes[CI];
+        quotes[CI] = quotes[randomIndex];
+        quotes[randomIndex] = tempValue;
+    }
+    return quotes;
+}
